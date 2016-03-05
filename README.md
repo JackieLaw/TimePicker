@@ -30,7 +30,8 @@ For more information see the blog post at http://roy-t.nl
 
 ## Missing Features
 - AM/PM selection
-- 
+- Highlight for indicator that is being dragged
+
 ## Known Issues
 - None so far
 
