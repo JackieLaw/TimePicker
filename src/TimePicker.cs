@@ -14,8 +14,8 @@ namespace RoyT.TimePicker
     {
         public const double HourTickRatio        = 0.20;
         public const double MinuteTickRatio      = 0.10;
-        public const double HourIndicatorRatio   = 0.95;
-        public const double MinuteIndicatorRatio = 0.70;
+        public const double HourIndicatorRatio   = 0.70;
+        public const double MinuteIndicatorRatio = 0.95;
 
         private readonly TimePickerInputController InputController;
 
