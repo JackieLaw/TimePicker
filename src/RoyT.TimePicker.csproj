@@ -56,6 +56,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ClockMath.cs" />
+    <Compile Include="Meridiem.cs" />
+    <Compile Include="Time.cs" />
     <Compile Include="TimePicker.cs" />
     <Compile Include="TimePickerInputController.cs" />
     <Page Include="MainWindow.xaml">

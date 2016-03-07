@@ -24,14 +24,14 @@ namespace RoyT.TimePicker
             this.InputController = new TimePickerInputController(this);
         }
 
-        public TimeSpan Time
+        public Time Time
         {
-            get { return (TimeSpan)GetValue(TimeProperty); }
+            get { return (Time)GetValue(TimeProperty); }
             set { SetValue(TimeProperty, value); }
         }
 
         public static readonly DependencyProperty TimeProperty =
-            DependencyProperty.Register("Time", typeof(TimeSpan), typeof(TimePicker), new PropertyMetadata(TimeSpan.Zero, new PropertyChangedCallback(RenderPropertyChanged)));
+            DependencyProperty.Register("Time", typeof(Time), typeof(TimePicker), new PropertyMetadata(new Time(0, 0, Meridiem.AM), new PropertyChangedCallback(TimeChanged)));
 
         public Brush HourBrush
         {
@@ -105,7 +105,7 @@ namespace RoyT.TimePicker
         public static readonly DependencyProperty MinuteTickThicknessProperty =
             DependencyProperty.Register("MinuteTickThickness", typeof(double), typeof(TimePicker), new PropertyMetadata(2.0));
 
-        private static void RenderPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
+        private static void TimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
         {
             var timePicker = d as TimePicker;
             if (timePicker != null)
@@ -150,7 +150,7 @@ namespace RoyT.TimePicker
             var pen = new Pen(this.MinuteBrush, this.MinuteThickness);
 
             drawingContext.DrawEllipse(this.MinuteBrush, pen, center, this.MinuteThickness * 1, this.MinuteThickness * 1);
-            var points = LineOnCircle((Math.PI * 2 * this.Time.Minutes / 60) - Math.PI / 2.0, center, 0, radius * MinuteIndicatorRatio);
+            var points = LineOnCircle((Math.PI * 2.0 * this.Time.Minute / 60.0) - Math.PI / 2.0, center, 0, radius * MinuteIndicatorRatio);
             drawingContext.DrawLine(pen, points[0], points[1]);            
         }
 
@@ -159,7 +159,7 @@ namespace RoyT.TimePicker
             var pen = new Pen(this.HourBrush, this.HourThickness);
 
             drawingContext.DrawEllipse(this.HourBrush, pen, center, this.HourThickness * 1, this.HourThickness * 1);
-            var points = LineOnCircle((Math.PI * 2 * this.Time.Hours / 12) - Math.PI / 2.0, center, 0, radius * HourIndicatorRatio);            
+            var points = LineOnCircle((Math.PI * 2.0 * this.Time.Hour / 12.0) - Math.PI / 2.0, center, 0, radius * HourIndicatorRatio);            
             drawingContext.DrawLine(pen, points[0], points[1]);            
         }
         

@@ -64,21 +64,21 @@ namespace RoyT.TimePicker
                 if (this.indicator == Indicator.HourIndicator)
                 {
                     var hour = AngleToHour(center, mouse);
-                    this.TimePicker.Time = new TimeSpan(hour, time.Minutes, 0);
+                    this.TimePicker.Time = new Time(hour, time.Minute, time.Meridiem);
                 }
 
                 if(this.indicator == Indicator.MinuteIndicator)
                 {
                     var minutes = AngleToMinutes(center, mouse);
-                    this.TimePicker.Time = new TimeSpan(time.Hours, minutes, time.Seconds);
+                    this.TimePicker.Time = new Time(time.Hour, minutes, time.Meridiem);
                 }                
             }
         }
 
         private void FindIndicator(double width, double height, double radius, Point center, Point mouse)
         {
-            var minuteTip = LineOnCircle((Math.PI * 2 * this.TimePicker.Time.Minutes / 60) - Math.PI / 2.0, center, 0, radius * MinuteIndicatorRatio)[1];
-            var hourTip   = LineOnCircle((Math.PI * 2 * this.TimePicker.Time.Hours / 12) - Math.PI / 2.0, center, 0, radius * HourIndicatorRatio)[1];
+            var minuteTip = LineOnCircle((Math.PI * 2 * this.TimePicker.Time.Minute / 60) - Math.PI / 2.0, center, 0, radius * MinuteIndicatorRatio)[1];
+            var hourTip   = LineOnCircle((Math.PI * 2 * this.TimePicker.Time.Hour / 12) - Math.PI / 2.0, center, 0, radius * HourIndicatorRatio)[1];
 
             var maxDistance = width * MinDistanceRatio;
 
