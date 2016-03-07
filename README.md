@@ -4,7 +4,7 @@ A touch friendly time picker for WPF inspired by a simple clock.
 ![Example](/screenshot.png)
 
 # Installation
-The time picker has no dependencies. Include the classes TimePicker.cs, TimePickerInputController.cs, and ClockMath.cs in your project. You can then use the TimePicker in your XAML like this:
+The time picker has no dependencies. Include the files Time.cs,  TimePicker.cs, TimePickerInputController.cs, and ClockMath.cs in your project. You can then use the TimePicker in your XAML like this:
 
 ```xaml
 <!-- Namespace declaration -->
@@ -14,6 +14,19 @@ xmlns:tp="clr-namespace:RoyT.TimePicker"
 <tp:TimePicker Time="{Binding Time, Mode=TwoWay}" />
 ```
 For more information see the blog post at http://roy-t.nl
+
+# Release 0.2
+## Added Features
+- AM / PM support
+
+## Fixed Issues
+- The hour indicator was longer than the minute indicator
+
+# Missing Features
+- Highlight for indicator that is being dragged
+
+## Known Issues
+- None so far
 
 # Release 0.1
 ## Implemented Features
@@ -43,4 +56,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
