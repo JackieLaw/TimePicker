@@ -4,16 +4,24 @@ A touch friendly time picker for WPF inspired by a simple clock.
 ![Example](/screenshot.png)
 
 # Installation
-The time picker has no dependencies. Include the files Time.cs,  TimePicker.cs, TimePickerInputController.cs, and ClockMath.cs in your project. You can then use the TimePicker in your XAML like this:
+This library is available as a NuGet package (https://www.nuget.org/packages/RoyT.TimePicker/). You can install the latest stable version by issuing the following command in the Package Manager Console
+```
+Install-Package RoyT.TimePicker
+```
 
+You can then use the TimePicker in your XAML files like this:
 ```xaml
 <!-- Namespace declaration -->
-xmlns:tp="clr-namespace:RoyT.TimePicker"
+xmlns:tp="clr-namespace:RoyT.TimePicker;assembly=RoyT.TimePicker"
 
 <!-- Time is a TimeSpan property in our data context -->
 <tp:TimePicker Time="{Binding Time, Mode=TwoWay}" />
 ```
 For more information see the blog post at http://roy-t.nl
+
+# Release 0.3
+## Added Features
+- NuGet Package support
 
 # Release 0.2
 ## Added Features

@@ -1,10 +1,10 @@
-﻿<Window x:Class="RoyT.TimePicker.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window x:Class="RoyT.TimePicker.Sample.MainWindow"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:RoyT.TimePicker"
+        xmlns:tp="clr-namespace:RoyT.TimePicker;assembly=RoyT.TimePicker"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="MainWindow"
+        Title="RoyT.TimePicker.Sample"
         Width="500"
         Height="500"
         mc:Ignorable="d">
@@ -15,12 +15,12 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <UniformGrid Columns="2" Rows="2">
-            <local:TimePicker Margin="10"
+            <tp:TimePicker Margin="10"
                               BorderBrush="Black"
                               BorderThickness="5"
                               Time="{Binding Time,
                                              Mode=TwoWay}" />
-            <local:TimePicker Margin="10"
+            <tp:TimePicker Margin="10"
                               BorderBrush="Blue"
                               BorderThickness="10"
                               HourThickness="8"
@@ -29,19 +29,19 @@
                               MinuteTickThickness="4"
                               Time="{Binding Time,
                                              Mode=TwoWay}">
-                <local:TimePicker.HourBrush>
+                <tp:TimePicker.HourBrush>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1.0">
                         <GradientStop Offset="0.0" Color="DarkSlateBlue" />
                         <GradientStop Offset="1.0" Color="SkyBlue" />
                     </LinearGradientBrush>
-                </local:TimePicker.HourBrush>
-            </local:TimePicker>
-            <local:TimePicker Margin="10"
+                </tp:TimePicker.HourBrush>
+            </tp:TimePicker>
+            <tp:TimePicker Margin="10"
                               BorderBrush="Transparent"
                               BorderThickness="5"
                               Time="{Binding Time,
                                              Mode=TwoWay}" />
-            <local:TimePicker Margin="10"
+            <tp:TimePicker Margin="10"
                               Background="Teal"
                               BorderBrush="Black"
                               BorderThickness="5"

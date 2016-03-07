@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>RoyT.TimePicker</id>
+        <version>0.4.0</version>
+        <authors>Roy Triesscheijn</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A touch friendly time picker for WPF inspired by a simple clock</description>
+    </metadata>
+    <files>
+        <file src="..\src\bin\Release\RoyT.TimePicker.dll" target="lib\net45\RoyT.TimePicker.dll" />
+    </files>
+</package>

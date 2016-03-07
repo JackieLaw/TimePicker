@@ -1,10 +1,11 @@
-﻿using System;
-using System.ComponentModel;
-using System.Timers;
+﻿using System.ComponentModel;
 using System.Windows;
 
-namespace RoyT.TimePicker
-{    
+namespace RoyT.TimePicker.Sample
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         private Time time;
@@ -13,8 +14,8 @@ namespace RoyT.TimePicker
         {
             this.time = new Time(0, 0, Meridiem.AM);
             this.DataContext = this;
-            InitializeComponent();         
-        }        
+            InitializeComponent();
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -23,7 +24,7 @@ namespace RoyT.TimePicker
             get { return this.time; }
             set
             {
-                if(!this.time.Equals(value))
+                if (!this.time.Equals(value))
                 {
                     this.time = value;
                     this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Time)));
@@ -33,7 +34,7 @@ namespace RoyT.TimePicker
 
         private void AMPMButton_Click(object sender, RoutedEventArgs e)
         {
-            if(this.Time.Meridiem == Meridiem.AM)
+            if (this.Time.Meridiem == Meridiem.AM)
             {
                 this.Time = new Time(this.Time.Hour, this.Time.Minute, Meridiem.PM);
             }
