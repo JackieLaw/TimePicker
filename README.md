@@ -14,7 +14,7 @@ You can then use the TimePicker in your XAML files like this:
 <!-- Namespace declaration -->
 xmlns:tp="clr-namespace:RoyT.TimePicker;assembly=RoyT.TimePicker"
 
-<!-- Time is a TimeSpan property in our data context -->
+<!-- Time is a property of the custom type Time in our data context -->
 <tp:TimePicker Time="{Binding Time, Mode=TwoWay}" />
 ```
 For more information see the blog post at http://roy-t.nl
