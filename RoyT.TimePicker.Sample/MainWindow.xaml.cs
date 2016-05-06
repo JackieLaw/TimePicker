@@ -8,18 +8,19 @@ namespace RoyT.TimePicker.Sample
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        private Time time;
+        private AnalogueTime time;
+        private DigitalTime digitalTime;
 
         public MainWindow()
         {
-            this.time = new Time(0, 0, Meridiem.AM);
+            this.time = new AnalogueTime(0, 0, Meridiem.AM);
             this.DataContext = this;
             InitializeComponent();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Time Time
+        public AnalogueTime Time
         {
             get { return this.time; }
             set
@@ -28,7 +29,20 @@ namespace RoyT.TimePicker.Sample
                 {
                     this.time = value;
                     this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Time)));
+                    this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DigitalTime)));
                 }
+            }
+        }
+
+        public DigitalTime MinTime { get { return new DigitalTime(9, 0); } }
+        public DigitalTime MaxTime { get { return new DigitalTime(21, 0); } }
+        
+        public DigitalTime DigitalTime
+        {
+            get { return this.Time.ToDigitalTime(); }
+            set
+            {
+                this.Time = value.ToAnalogueTime();
             }
         }
 
@@ -36,11 +50,11 @@ namespace RoyT.TimePicker.Sample
         {
             if (this.Time.Meridiem == Meridiem.AM)
             {
-                this.Time = new Time(this.Time.Hour, this.Time.Minute, Meridiem.PM);
+                this.Time = new AnalogueTime(this.Time.Hour, this.Time.Minute, Meridiem.PM);
             }
             else
             {
-                this.Time = new Time(this.Time.Hour, this.Time.Minute, Meridiem.AM);
+                this.Time = new AnalogueTime(this.Time.Hour, this.Time.Minute, Meridiem.AM);
             }
 
         }

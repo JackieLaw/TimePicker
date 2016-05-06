@@ -55,9 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClockMath.cs" />
+    <Compile Include="DigitalTime.cs" />
+    <Compile Include="DigitalTimeConverter.cs" />
     <Compile Include="Meridiem.cs" />
-    <Compile Include="Time.cs" />
+    <Compile Include="AnalogueTime.cs" />
     <Compile Include="TimePicker.cs" />
+    <Compile Include="TimePickerSlider.cs" />
     <Compile Include="TimePickerInputController.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +86,12 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

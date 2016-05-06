@@ -6,9 +6,9 @@ namespace RoyT.TimePicker
     ///  Represents a time, rules for AM and PM from 
     ///  http://www.timeanddate.com/time/am-and-pm.html
     /// </summary>
-    public struct Time
+    public struct AnalogueTime : IComparable<AnalogueTime>, IEquatable<AnalogueTime>
     {
-        public Time(int hour, int minute, Meridiem meridiem)
+        public AnalogueTime(int hour, int minute, Meridiem meridiem)
         {
             if(hour < 0 || hour > 12)
             {
@@ -25,7 +25,7 @@ namespace RoyT.TimePicker
             this.Meridiem = meridiem;
         }
 
-        public Time(TimeSpan time)
+        public AnalogueTime(TimeSpan time)
         {
             this.Minute = time.Minutes;
 
@@ -58,6 +58,9 @@ namespace RoyT.TimePicker
                 throw new ArgumentException("Cannot create a time from a TimeSpan that represents more than 24 hours", nameof(time));
             }
         }
+
+        public AnalogueTime(DigitalTime time)
+            : this(time.ToTimeSpan()) { }            
 
         public int Hour { get; }
         public int Minute { get; }
@@ -93,27 +96,60 @@ namespace RoyT.TimePicker
                 }
             }
         }
-        
-        public override bool Equals(object obj)
-        {
-            return obj != null && obj is Time 
-                && Equals((Time)obj);
-        }
 
-        public bool Equals(Time other)
+        public DigitalTime ToDigitalTime()
         {
-            return other.ToTimeSpan().Equals(this.ToTimeSpan());
+            return new DigitalTime(this.ToTimeSpan());
         }
 
         public override int GetHashCode()
         {
-            return ToTimeSpan().GetHashCode();
+            return ((int)this.Meridiem * 1000) + this.Hour * 100 + this.Minute;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj != null &&
+                   obj is AnalogueTime && 
+                   Equals((AnalogueTime)obj);
+        }
+
+        public bool Equals(AnalogueTime other)
+        {
+            return other.Hour == this.Hour &&
+                   other.Minute == this.Minute &&
+                   other.Meridiem == this.Meridiem;
+        }        
 
         public override string ToString()
         {
             var dt = DateTime.Today.Add(ToTimeSpan());
             return dt.ToString("HH:mm (tt)");
+        }
+
+        public int CompareTo(AnalogueTime other)
+        {
+            return this.ToTimeSpan().CompareTo(other.ToTimeSpan());
+        }
+
+        public static bool operator <(AnalogueTime left, AnalogueTime right)
+        {
+            return left.CompareTo(right) < 0;
+        }
+
+        public static bool operator >(AnalogueTime left, AnalogueTime right)
+        {
+            return left.CompareTo(right) > 0;
+        }
+
+        public static bool operator ==(AnalogueTime left, AnalogueTime right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(AnalogueTime left, AnalogueTime right)
+        {
+            return !Equals(left, right);
         }
     }
 }

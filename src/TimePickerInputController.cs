@@ -64,13 +64,13 @@ namespace RoyT.TimePicker
                 if (this.indicator == Indicator.HourIndicator)
                 {
                     var hour = AngleToHour(center, mouse);
-                    this.TimePicker.Time = new Time(hour, time.Minute, time.Meridiem);
+                    this.TimePicker.Time = new AnalogueTime(hour, time.Minute, time.Meridiem);
                 }
 
                 if(this.indicator == Indicator.MinuteIndicator)
                 {
                     var minutes = AngleToMinutes(center, mouse);
-                    this.TimePicker.Time = new Time(time.Hour, minutes, time.Meridiem);
+                    this.TimePicker.Time = new AnalogueTime(time.Hour, minutes, time.Meridiem);
                 }                
             }
         }

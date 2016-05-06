@@ -24,14 +24,14 @@ namespace RoyT.TimePicker
             this.InputController = new TimePickerInputController(this);
         }
 
-        public Time Time
+        public AnalogueTime Time
         {
-            get { return (Time)GetValue(TimeProperty); }
+            get { return (AnalogueTime)GetValue(TimeProperty); }
             set { SetValue(TimeProperty, value); }
         }
 
         public static readonly DependencyProperty TimeProperty =
-            DependencyProperty.Register("Time", typeof(Time), typeof(TimePicker), new PropertyMetadata(new Time(0, 0, Meridiem.AM), new PropertyChangedCallback(TimeChanged)));
+            DependencyProperty.Register("Time", typeof(AnalogueTime), typeof(TimePicker), new PropertyMetadata(new AnalogueTime(0, 0, Meridiem.AM), new PropertyChangedCallback(TimeChanged)));
 
         public Brush HourBrush
         {

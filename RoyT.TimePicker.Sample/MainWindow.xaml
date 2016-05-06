@@ -13,6 +13,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <UniformGrid Columns="2" Rows="2">
             <tp:TimePicker Margin="10"
@@ -50,12 +51,14 @@
                               Time="{Binding Time,
                                              Mode=TwoWay}" />
         </UniformGrid>
-        <TextBlock Grid.Row="1"
+
+        <tp:TimePickerSlider Grid.Row="1" Time="{Binding DigitalTime, Mode=TwoWay}" MinTime="{Binding MinTime}" MaxTime="{Binding MaxTime}"/>
+        <TextBlock Grid.Row="2"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="32"
                    Text="{Binding Time}" />
 
-        <Button Grid.Row="2" Content="AM/PM" Click="AMPMButton_Click" />
+        <Button Grid.Row="3" Content="AM/PM" Click="AMPMButton_Click" />
     </Grid>
 </Window>

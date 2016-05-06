@@ -1,5 +1,5 @@
 # TimePicker
-A touch friendly time picker for WPF inspired by a simple clock.
+This package contains a touch friendly time picker for WPF that's inspired by a simple clock, a range based time slider and conversion between the 24 hour clock time and the 12 hour AM/PM clock time.
 
 ![Example](/screenshot.png)
 
@@ -18,6 +18,10 @@ xmlns:tp="clr-namespace:RoyT.TimePicker;assembly=RoyT.TimePicker"
 <tp:TimePicker Time="{Binding Time, Mode=TwoWay}" />
 ```
 For more information see the blog post at http://roy-t.nl
+# Release 0.4
+## Added Features
+- Fully restylable Digital Time Slider
+- 24 hour <-> 12 hour clock conversion
 
 # Release 0.3
 ## Added Features
